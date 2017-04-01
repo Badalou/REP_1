@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <math.h>
+#include <iostream>
+#include <stdlib.h>
+#include <stdint.h>
+#include <inttypes.h>
+
+using namespace std;
+
+int main(void)
+{
+	unsigned __int64 n, a, max, i;
+	
+	printf("Input n :\n");
+	printf("n = ");
+	scanf_s("%llu", &n);
+	
+	//нужно разложить число на простые множители
+
+	//printf("\n n = %llu", n);
+	a = n; 
+	max = 1;
+	while (a > 1)
+	{
+		//printf("\na = %llu, max = %llu", a, max);
+		for (i = 2; i < n; i++)
+		{
+			if (a % i == 0)
+			{
+				//printf("\n    i = %llu, a %% i = %llu", i, a % i);
+				a = a / i;
+				if (i > max)
+					max = i;
+				break;
+			}
+		}
+	}
+
+	printf("\n Max prime factor is %llu\n", max);
+	scanf_s("\n %llu", &i);
+}
